@@ -284,9 +284,7 @@ export default About;
 
 
 
-    git init
-git add .
-git commit -m "Ecommerce frontend"
-git branch -M main
-git remote add origin https://github.com/darshan327/Ecommerce.git
-git push -u origin main
+
+
+
+
