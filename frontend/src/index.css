@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* GOOGLE FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* GLOBAL STYLES */
+
+*{
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body{
+  @apply bg-white text-gray-900;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+  @apply w-full flex items-center justify-between
+  px-[8%] py-5 border-b border-gray-200
+  sticky top-0 bg-white z-50;
+}
+
+.logo{
+  @apply text-3xl font-bold tracking-widest;
+}
+
+.nav-links{
+  @apply hidden md:flex items-center gap-9 list-none;
+}
+
+.nav-links a{
+  @apply text-sm font-medium text-black
+  hover:text-gray-500 transition duration-300;
+}
+
+.icons{
+  @apply flex items-center gap-5;
+}
+
+.icons img{
+  @apply w-5 cursor-pointer;
+}
+
+
+/* HERO SECTION */
+
+.hero{
+  @apply w-full min-h-screen
+  flex flex-col md:flex-row
+  items-center justify-between
+  px-[8%] py-16 gap-12;
+}
+
+.hero-left{
+  @apply flex-1;
+}
+
+.new-text{
+  @apply text-sm tracking-[4px]
+  mb-5 text-gray-700;
+}
+
+.hero-left h1{
+  @apply text-5xl md:text-7xl
+  font-semibold leading-tight mb-8;
+}
+
+.hero-left button{
+  @apply px-9 py-4 bg-black text-white
+  text-sm tracking-wide
+  hover:bg-gray-800
+  transition duration-300;
+}
+
+.hero-right{
+  @apply flex-1;
+}
+
+.hero-right img{
+  @apply w-full rounded-xl;
+}
+
+
+/* PRODUCTS */
+
+.products{
+  @apply px-[8%] py-20;
+}
+
+.products-title{
+  @apply text-4xl font-semibold
+  text-center mb-14;
+}
+
+.product-grid{
+  @apply grid grid-cols-1 sm:grid-cols-2
+  lg:grid-cols-4 gap-8;
+}
+
+.card{
+  @apply cursor-pointer transition duration-300;
+}
+
+.card:hover{
+  @apply -translate-y-2;
+}
+
+.card img{
+  @apply w-full h-[350px]
+  object-cover rounded-xl;
+}
+
+.card h3{
+  @apply mt-4 text-lg font-medium;
+}
+
+.card p{
+  @apply mt-2 font-semibold text-gray-700;
+}
+
+
+/* PAGE */
+
+.page{
+  @apply min-h-[70vh]
+  flex items-center justify-center
+  text-4xl font-semibold;
+}
+
+
+/* FOOTER */
+
+.footer{
+  @apply border-t border-gray-200
+  text-center py-8 mt-10;
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #cfcfcf;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: #a8a8a8;
+}
