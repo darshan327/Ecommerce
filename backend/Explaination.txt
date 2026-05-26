@@ -99,4 +99,31 @@
            multer → gets image from frontend
            Cloudinary → uploads image online
            
-           Then backend receives:                
+           Then backend receives:  
+
+     => productModel.js 
+
+          what data a product should contain
+            datatype of each field
+            validation rules
+            and creates a model to interact with the database   
+
+
+            A Schema defines the structure of documents inside MongoDB collection.
+
+              Think of schema like a blueprint or template.    
+
+
+        => user model
+        it used to store user credentials
+
+         Difference Between Product Model and User Model
+         Feature	    Product Model	       User Model
+         Purpose	        Stores products	           Stores users
+         Collection	        products	           users
+         Main Data	        Product info	           Login/account info
+         Contains	        price, images, sizes       email, password, cart
+         Used In	        Product page	           Authentication
+         Important Field	price	                   email
+         Special Option	        bestSeller	           unique email
+         Array Usage	        images, sizes	           cart object               
