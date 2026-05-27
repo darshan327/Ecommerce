@@ -1,16 +1,19 @@
-
+import userModel from "../models/userModel.js"
 
 // Route for user login 
 
- const loginUser = async()=>{
+ const loginUser = async(req,res)=>{
 
 
  }
 
   // Route for user registration
 
-  const registerUser = async()=>{
-
+  const registerUser = async(req, res)=>{
+     
+     res.json({msg:"resister API Working"})
+     
+     
   }
 
   // Route for admin login

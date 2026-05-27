@@ -127,3 +127,18 @@
          Important Field	price	                   email
          Special Option	        bestSeller	           unique email
          Array Usage	        images, sizes	           cart object               
+
+
+     => routes/userRoute 
+
+           This router file is required to organize and manage your API endpoints properly in an Express.js application.
+
+           Without it, your entire backend code becomes messy and difficult to manage.
+
+           Defines API paths
+            Connects URLs to functions
+            Keeps backend organized
+            Separates logic cleanly
+            Makes project scalable 
+
+            
