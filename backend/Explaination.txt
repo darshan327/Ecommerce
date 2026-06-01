@@ -141,4 +141,146 @@
             Separates logic cleanly
             Makes project scalable 
 
-            
+
+     => controllers
+        * Resister
+             Creates an asynchronous function to handle user registration.
+
+               req → Request from frontend
+               res → Response sent back to frontend
+               async → Allows use of await
+
+             => try{
+              }
+                 Purpose
+
+                  Wraps code that may produce errors.
+                  
+                  If any error occurs, execution jumps to the catch block.
+
+            =>  const {name, email, password} = req.body; 
+                   Extracts user data sent by frontend.   
+                   {
+                      "name":"Darshan",
+                      "email":"darshan@gmail.com",
+                      "password":"12345678"
+                   }
+
+            =>  const exists = await userModel.findOne({email});
+                   Purpose
+
+                    Search MongoDB for a user with the same email.
+
+                    await waits until MongoDB returns the result.
+
+             =>   if(!validator.isEmail(email)){}
+                     Purpose
+                     
+                     Checks if email format is valid.
+                     
+                     Examples:
+                     
+                     ✅ Valid
+                     
+                     abc@gmail.com
+                     
+                     ❌ Invalid
+                     
+                     abcgmail.com
+                     abc@ 
+
+                 =>if(password.length < 8){}
+                     Purpose
+
+                     Checks password has at least 8 characters.
+                     
+                     Examples:
+                     
+                     ❌
+                     
+                     12345
+                     
+                     ✅
+                     
+                     12345678
+
+
+              =>   Generate Salt
+                    const salt = await bcrypt.genSalt(10);
+                    Purpose
+                    
+                    Creates a random salt.
+                    
+                    Example:
+                    
+                    $2b$10$R4jK9x...
+                    
+                    Salt makes password hashing more secure.     
+
+              => Hash Password
+                    const hashedPassword = await bcrypt.hash(password, salt);
+                    Purpose
+                    
+                    Converts plain password:
+                    
+                    12345678
+                    
+                    into:
+                    
+                    $2b$10$kLdf8D3...
+                    
+                    Password is never stored directly.
+
+             =>   Create User Object
+                     const newUser = new userModel({
+                        name,
+                        email,
+                        password: hashedPassword
+                     });
+                     Purpose
+                     
+                     Creates a new user document.
+                     
+                     Equivalent:
+                     
+                     const newUser = {
+                        name:"Darshan",
+                        email:"darshan@gmail.com",
+                        password:"hashed value"
+                     }           
+                       
+              => Generate JWT Token
+                  const token = createToken(user._id)
+                  Purpose
+                  
+                  Creates authentication token.   
+
+                    This token is later used for:
+
+                       Login sessions
+                       Protected routes
+                       User authentication
+
+
+                User sends name,email,password
+                               ↓
+                   Check existing email
+                               ↓
+                   Validate email
+                               ↓
+                   Validate password
+                               ↓
+                   Generate salt
+                               ↓
+                   Hash password
+                               ↓
+                   Create user object
+                               ↓
+                   Save to MongoDB
+                               ↓
+                   Generate JWT token
+                               ↓
+                   Send success response                                               
+                                                             
+                                          
+                                                                                       
