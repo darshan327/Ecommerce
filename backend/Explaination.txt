@@ -262,7 +262,7 @@
                        User authentication
 
 
-                User sends name,email,password
+               => User sends name,email,password
                                ↓
                    Check existing email
                                ↓
@@ -282,5 +282,28 @@
                                ↓
                    Send success response                                               
                                                              
-                                          
-                                                                                       
+
+
+
+       => loginUser
+
+           User enters email & password
+                       ↓
+           req.body
+                       ↓
+           Find user in MongoDB
+                       ↓
+           User exists?
+                 ↓             ↓
+                No            Yes
+                 ↓             ↓
+           "User does    Compare password
+           not exist"          ↓
+                           Password correct?
+                            ↓          ↓
+                           No         Yes
+                            ↓          ↓
+                   "Invalid       Create JWT
+                   credentials"      ↓
+                                  Send token                                 
+                                                                                                  
