@@ -1,0 +1,44 @@
+
+  ProductRoute 
+
+   What is a Route?
+
+     A route is simply:
+     
+     URL + HTTP Method
+     
+     Example:
+     
+     GET  /list
+     POST /add
+     POST /remove
+     
+     Just like:
+     
+     Amazon.com/addProduct
+     Amazon.com/removeProduct
+
+      Route's Job
+
+       The route only decides:
+       
+       Which URL?
+       Which function should run?
+       
+       It does NOT contain business logic.
+
+
+       The productRoute.js file is responsible for defining all product-related API endpoints in the eCommerce application.
+       \ It acts as a bridge between the client requests and the controller functions. Whenever a request is sent to a product 
+       API such as adding, listing, removing, or viewing a product, the route file determines which controller function should handle that request.
+        It also uses middleware such as Multer (upload.fields()) to process uploaded product images before passing the request to the controller. By separating routes 
+        from business logic, the application becomes more organized, maintainable, and scalable. In this project, routes like /add, /list, /remove, and /single are defined to perform different product operations.
+
+
+      Product Controller (productController.js)
+        The productController.js file contains the business logic for handling product-related operations.
+         It receives requests from the route file, extracts product information from req.body, accesses uploaded 
+         images through req.files, processes the data, and performs actions such as uploading images to Cloudinary and storing product details in MongoDB. 
+         The controller is responsible for validating data, interacting with the database, handling errors, and sending appropriate responses back to the client.
+          Keeping the business logic inside controllers makes the code cleaner and allows routes to focus only on request handling. In this project, functions such as 
+          addProduct, listProduct, removeProduct, and singleProduct are implemented inside the controller to manage all product operations efficiently.
