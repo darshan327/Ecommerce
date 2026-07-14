@@ -78,14 +78,17 @@ import jwt from 'jsonwebtoken';
             const token = createToken(user._id)
 
             res.status(200).json({msg:"User registered successfully", token})
-
-   }catch(error){
-    res.status(500).json({msg:"Error registering user"})
-   }
-   
-     
-     
+    }catch(error){
+    console.log(error);   // Print the real error
+    res.status(500).json({
+        msg: "Error registering user",
+        error: error.message
+    });
+}
   }
+
+
+
 
   // Route for admin login
 

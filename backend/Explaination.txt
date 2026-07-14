@@ -305,5 +305,5 @@
                             ↓          ↓
                    "Invalid       Create JWT
                    credentials"      ↓
-                                  Send token                                 
+                                     send token                             
                                                                                                   
